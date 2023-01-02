@@ -1,0 +1,16 @@
+[package]
+name = "read-stdin"
+version = "1.0.0"
+edition = "2021"
+
+description = "A simple and easy way reading of obtaining user input."
+
+repository = "https://github.com/DigitalCyan/read-stdin"
+license-file = "LICENSE.txt"
+
+keywords = ["input", "stdin"]
+categories = ["command-line-interface", "command-line-utilities"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
