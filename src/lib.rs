@@ -19,7 +19,7 @@ use std::str::FromStr;
 ///     return;
 /// };
 ///
-/// println!("You entered: {}", n)
+/// println!("You entered: {}", n);
 /// ```
 pub fn once<T>() -> Result<T, <T as FromStr>::Err>
 where
@@ -48,7 +48,7 @@ where
 ///
 /// let n: i32 = read_stdin::until_ok();
 ///
-/// println!("You entered: {}", n)
+/// println!("You entered: {}", n);
 /// ```
 pub fn until_ok<T>() -> T
 where
@@ -71,9 +71,12 @@ where
 /// ```rust
 /// use read_stdin;
 ///
-/// let n: i32 = read_stdin::prompt("Enter a number: ");
+/// let Ok(n) = read_stdin::prompt::<i32>("Enter a number: ") else {
+///     println!("Failed to parse");
+///     return;
+/// };
 ///
-/// println!("You entered: {}", n)
+/// println!("You entered: {}", n);
 /// ```
 pub fn prompt<T>(prompt: &(impl ToString + Display + ?Sized)) -> Result<T, <T as FromStr>::Err>
 where
@@ -92,9 +95,9 @@ where
 /// ```rust
 /// use read_stdin;
 ///
-/// let n: i32 = read_stdin::prompt("Enter a number: ");
+/// let n: i32 = read_stdin::prompt_until_ok("Enter a number: ");
 ///
-/// println!("You entered: {}", n)
+/// println!("You entered: {}", n);
 /// ```
 pub fn prompt_until_ok<T>(prompt: &(impl ToString + Display + ?Sized)) -> T
 where
